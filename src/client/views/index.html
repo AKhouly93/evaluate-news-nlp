@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>iEvaluate</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">
+                iEvaluate
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <form class="form" onsubmit="return Client.handleSubmit(event)">
+                    <h1>Paste the article URL below</h1>
+                    <input class="form__input" id="name" type="text" name="input" value="" placeholder="Article URL">
+                    <input class="form__submit-btn" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                </form>
+            </section>
+
+            <section class='analysis-box'>
+                <strong>Sentiment Analysis</strong>
+                <div id="scoreTag"></div>
+                <div id="confidence"></div>
+                <div id="subjectivity"></div>
+                <div id="agreement"></div>
+            </section>
+        </main>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
+    </body>
+</html>
